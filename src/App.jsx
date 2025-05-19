@@ -10,6 +10,7 @@ import {
 } from "react-router";
 import Home from "./Home";
 import Stories from "./Story";
+import About from "./About";
 
 function NavWrapper({ children }) {
   return (
