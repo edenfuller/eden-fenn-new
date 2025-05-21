@@ -1,32 +1,44 @@
+/** @jsxImportSource @emotion/react */
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import {
-  createHashRouter,
-  RouterProvider,
-  HashRouter,
-  Link,
-} from "react-router";
+import { createHashRouter, RouterProvider, Link } from "react-router";
 import Home from "./Home";
-import Stories from "./Story";
+import Stories from "./Stories";
 import About from "./About";
+import Contact from "./Contact";
+import { css } from "@emotion/react";
+
+const navStyles = css`
+  width: 800px;
+  max-width: 100vw;
+
+  li {
+    width: 25%;
+
+    &.selected {
+      background: var(--gradient-gold);
+      * {
+        color: var(--color-black);
+      }
+    }
+  }
+`;
 
 function NavWrapper({ children }) {
   return (
     <>
-      <nav>
+      <nav css={[navStyles]}>
         <ul>
-          {["home", "about", "stories"].map((path) => (
-            <li key={path}>
-              <Link
-                className={
-                  window?.location?.href?.includes(path) ? "selected" : ""
-                }
-                to={`/${path}`}
-              >
-                {path}
-              </Link>
+          {["home", "stories", "about", "contact"].map((path) => (
+            <li
+              key={path}
+              className={
+                window?.location?.href?.includes(path) ? "selected" : ""
+              }
+            >
+              <Link to={`/${path}`}>{path}</Link>
             </li>
           ))}
         </ul>
@@ -40,6 +52,14 @@ function StoriesWrapper() {
   return (
     <NavWrapper>
       <Stories />
+    </NavWrapper>
+  );
+}
+
+function ContactWrapper() {
+  return (
+    <NavWrapper>
+      <Contact />
     </NavWrapper>
   );
 }
@@ -81,15 +101,19 @@ function App() {
       Component: AboutWrapper,
     },
     {
+      path: "contact",
+      Component: ContactWrapper,
+    },
+    {
       path: "*",
       Component: HomeWrapper,
     },
   ]);
 
   return (
-    <div className="App">
+    <main className="App">
       <RouterProvider router={router}></RouterProvider>
-    </div>
+    </main>
   );
 }
 

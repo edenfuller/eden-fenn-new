@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Nova+Cut&family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family-header: 'Nova Cut', slab-serif, serif;
+  --font-family-reader: 'EB Garamond', serif;
+  --font-family-body: 'Saira Semi Condensed', sans-serif;
+
+  font-family: var(--font-family-body);
   line-height: 1.5;
   font-weight: 400;
+  font-size: 10px;
 
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -11,15 +17,53 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* colors */
+  --color-pink: #EE5D87;
+  --color-gold: #ECCF44;
+  --color-bronze: #8C6845;
+  --color-black: #030001;
+  --color-white: #ffdfe8;
+
+  --gradient-gold: linear-gradient(to top left, var(--color-bronze), var(--color-gold));
+
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+
+* {
+  font-size: 1.8rem;
+}
+
+h1, h2, h3, h4, nav * {
+  font-family: var(--font-family-header);
+  color: var(--color-pink);
+}
+
+nav * {
+  color: var(--color-gold);
+}
+
+h1 {
+  font-size: 7rem;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 4rem;
+  margin-top: 0;
+}
+
+ul {
+  list-style: none;
+  display: flex;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
 }
 a:hover {
-  color: #535bf2;
+  
 }
 
 body {
@@ -30,22 +74,13 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+main {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  max-width: 800px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
 button:hover {
   border-color: #646cff;
 }
@@ -54,15 +89,15 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+@media (min-width: 990px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+    color: var(--color-black);
+    background-color: var(--color-gold);
   }
 }
