@@ -22,17 +22,25 @@
   --color-pink: #EE5D87;
   --color-gold: #ECCF44;
   --color-bronze: #8C6845;
+  --color-bronze-transparent: #8C684500;
   --color-black: #030001;
   --color-white: #ffdfe8;
 
   --gradient-gold: linear-gradient(to top left, var(--color-bronze), var(--color-gold));
+  --gradient-gold-border: linear-gradient(to left, var(--color-bronze-transparent), var(--color-bronze), var(--color-gold), var(--color-bronze), var(--color-bronze-transparent));
 
   color: var(--color-white);
   background-color: var(--color-black);
+  width: 100%;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
 }
 
 * {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 h1, h2, h3, h4, nav * {
@@ -40,18 +48,12 @@ h1, h2, h3, h4, nav * {
   color: var(--color-pink);
 }
 
+nav {
+  position: fixed;
+}
+
 nav * {
   color: var(--color-gold);
-}
-
-h1 {
-  font-size: 7rem;
-  margin-bottom: 0;
-}
-
-h2 {
-  font-size: 4rem;
-  margin-top: 0;
 }
 
 ul {
@@ -61,24 +63,49 @@ ul {
 
 a {
   text-decoration: none;
+  color: var(--color-gold);
+  transition: all 0.2s linear;
 }
 a:hover {
   
+  color: var(--color-bronze);
 }
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
 }
 
 main {
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  height: calc(100% - 120px);
+  top: 60px;
+  position: fixed;
+  overflow: auto;
+}
+
+.image-area {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   place-items: center;
-  max-width: 800px;
+}
+
+.headshot {
+  width: 300px;
+  height: auto;
+  clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 100%, calc(0% + 40px) 100%);
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 button:hover {
@@ -92,6 +119,10 @@ button:focus-visible {
 @media (min-width: 990px) {
   :root {
     font-size: 12px;
+  } 
+
+  main {
+    text-align: center;
   }
 }
 
@@ -100,4 +131,5 @@ button:focus-visible {
     color: var(--color-black);
     background-color: var(--color-gold);
   }
+
 }

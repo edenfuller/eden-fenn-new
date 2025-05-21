@@ -1,21 +1,42 @@
 /** @jsxImportSource @emotion/react */
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
 import { createHashRouter, RouterProvider, Link } from "react-router";
 import Home from "./Home";
 import Stories from "./Stories";
 import About from "./About";
 import Contact from "./Contact";
+import Header from "./Header";
 import { css } from "@emotion/react";
 
 const navStyles = css`
-  width: 800px;
+  width: 100%;
   max-width: 100vw;
 
+  .divider {
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-gold-border);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   li {
-    width: 25%;
+    width: 200px;
+    max-width: 33%;
+    height: 60px;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    clip-path: polygon(0 0, calc(100% - 8%) 0, 100% 100%, calc(0% + 8%) 100%);
 
     &.selected {
       background: var(--gradient-gold);
@@ -26,12 +47,13 @@ const navStyles = css`
   }
 `;
 
-function NavWrapper({ children }) {
+function NavWrapper({ children, page }) {
   return (
     <>
+      <Header page={page} />
       <nav css={[navStyles]}>
         <ul>
-          {["home", "stories", "about", "contact"].map((path) => (
+          {["stories", "about", "contact"].map((path) => (
             <li
               key={path}
               className={
@@ -42,6 +64,7 @@ function NavWrapper({ children }) {
             </li>
           ))}
         </ul>
+        <div className="divider"></div>
       </nav>
       {children}
     </>
@@ -50,7 +73,7 @@ function NavWrapper({ children }) {
 
 function StoriesWrapper() {
   return (
-    <NavWrapper>
+    <NavWrapper page="stories">
       <Stories />
     </NavWrapper>
   );
@@ -58,7 +81,7 @@ function StoriesWrapper() {
 
 function ContactWrapper() {
   return (
-    <NavWrapper>
+    <NavWrapper page="contact">
       <Contact />
     </NavWrapper>
   );
@@ -66,7 +89,7 @@ function ContactWrapper() {
 
 function AboutWrapper() {
   return (
-    <NavWrapper>
+    <NavWrapper page="about">
       <About />
     </NavWrapper>
   );
@@ -106,14 +129,14 @@ function App() {
     },
     {
       path: "*",
-      Component: HomeWrapper,
+      Component: AboutWrapper,
     },
   ]);
 
   return (
-    <main className="App">
+    <div className="App">
       <RouterProvider router={router}></RouterProvider>
-    </main>
+    </div>
   );
 }
 

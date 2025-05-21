@@ -4,7 +4,3 @@ Eden's current project is **_The Candle at Both Ends_**, a contemporary fantasy/
 
 Eden's short stories have appeared
 in _Nature Futures_, _Daily Science Fiction_, and _Asimov's Science Fiction Magazine_.
-
-# about
-
-## eden fenn

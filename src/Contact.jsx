@@ -4,5 +4,16 @@ import remarkGfm from "remark-gfm";
 import markdown from "./contact.md";
 
 export default function Contact() {
-  return <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>;
+  return (
+    <main>
+        <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>
+      <div className="image-area">
+        <img
+          className="headshot"
+          src="/eden_headshot_gn.jpg"
+          alt="Eden headshot"
+        />
+      </div>
+    </main>
+  );
 }
