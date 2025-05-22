@@ -50,7 +50,6 @@ const navStyles = css`
 function NavWrapper({ children, page }) {
   return (
     <>
-      <Header page={page} />
       <nav css={[navStyles]}>
         <ul>
           {["stories", "about", "contact"].map((path) => (
@@ -66,6 +65,7 @@ function NavWrapper({ children, page }) {
         </ul>
         <div className="divider"></div>
       </nav>
+      <Header page={page} />
       {children}
     </>
   );
