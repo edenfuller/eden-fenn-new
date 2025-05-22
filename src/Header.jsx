@@ -40,14 +40,15 @@ const styles = css`
   h1 {
     font-size: 5rem;
     line-height: 5rem;
-    bottom: 14px;
+    bottom: 17px;
     left: 1vw;
+    animation: appearFromRight 0.4s ease-out;
   }
 
   h2 {
     font-size: 3.5rem;
     line-height: 3.5rem;
-    bottom: 7px;
+    bottom: 11px;
     right: 1vw;
   }
 
@@ -56,8 +57,8 @@ const styles = css`
     color: var(--color-black);
   }
 
-  @media (min-width: 990px) {
-    bottom: 1rem;
+  .inverse h1 {
+    animation-name: appearFromLeft;
   }
 `;
 

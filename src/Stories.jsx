@@ -52,7 +52,7 @@ export default function Stories() {
     <main css={styles}>
       <ul>
         {Object.keys(stories).map((storyName, i) => (
-          <li>
+          <li key={`story-${i + 1}`}>
             <Link to={`/stories/${storyName}`}>{stories[storyName].title}</Link>
             <p>{stories[storyName].credit}</p>
           </li>

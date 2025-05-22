@@ -1,6 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from "react";
-import { createHashRouter, RouterProvider, Link } from "react-router";
+import { useEffect, useState, useRef } from "react";
+import {
+  createHashRouter,
+  RouterProvider,
+  Link,
+  useLocation,
+  Navigate,
+} from "react-router";
 import Home from "./Home";
 import Stories from "./Stories";
 import About from "./About";
@@ -36,10 +42,24 @@ const navStyles = css`
     display: flex;
     place-items: center;
     justify-content: center;
-    clip-path: polygon(0 0, calc(100% - 8%) 0, 100% 100%, calc(0% + 8%) 100%);
+    transition: all 0.4s linear;
+    position: relative;
 
-    &.selected {
+    .bg {
+      clip-path: polygon(41% 0%, 41% 0%, 58% 100%, 58% 100%);
+      width: 100%;
+      height: 100%;
+      position: absolute;
       background: var(--gradient-gold);
+      transition: all 0.4s ease-out;
+      z-index: -1;
+    }
+
+    &.selected,
+    :hover {
+      .bg {
+        clip-path: polygon(0% 0%, 92% 0%, 100% 100%, 8% 100%);
+      }
       * {
         color: var(--color-black);
       }
@@ -59,6 +79,7 @@ function NavWrapper({ children, page }) {
                 window?.location?.href?.includes(path) ? "selected" : ""
               }
             >
+              <div className="bg" />
               <Link to={`/${path}`}>{path}</Link>
             </li>
           ))}
@@ -96,15 +117,22 @@ function AboutWrapper() {
 }
 
 function HomeWrapper() {
-  return (
-    <NavWrapper>
-      <Home />
-    </NavWrapper>
-  );
+  return <Navigate replace to="/about" />;
 }
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [updating, setUpdating] = useState(true);
+  const location = useLocation;
+  const lastLocation = useRef(location);
+
+  useEffect(() => {
+    if (location.path !== lastLocation.current.path) {
+      setUpdating(true);
+
+      setTimeout(setUpdating(false), 1000);
+    }
+    lastLocation.current = location;
+  }, [location]);
 
   const router = createHashRouter([
     {
@@ -129,7 +157,7 @@ function App() {
     },
     {
       path: "*",
-      Component: AboutWrapper,
+      Component: HomeWrapper,
     },
   ]);
 
