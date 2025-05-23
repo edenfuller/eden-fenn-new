@@ -21,13 +21,14 @@
   /* colors */
   --color-pink: #EE5D87;
   --color-gold: #ECCF44;
+  --color-gold-dark: #d5b92b;
   --color-bronze: #8C6845;
   --color-bronze-transparent: #8C684500;
   --color-black: #030001;
   --color-white: #ffdfe8;
 
-  --gradient-gold: linear-gradient(to top left, var(--color-bronze), var(--color-gold));
-  --gradient-gold-border: linear-gradient(to left, var(--color-bronze-transparent), var(--color-bronze), var(--color-gold), var(--color-bronze), var(--color-bronze-transparent));
+  --gradient-gold: linear-gradient(to bottom right, var(--color-bronze) -40%, var(--color-gold-dark) 30%);
+  --gradient-gold-border: linear-gradient(to left, var(--color-bronze-transparent), var(--color-gold-dark), var(--color-gold-dark), var(--color-gold-dark), var(--color-bronze-transparent));
 
   color: var(--color-white);
   background-color: var(--color-black);
@@ -128,6 +129,7 @@ button:focus-visible {
   main {
     top: 130px;
     height: calc(100% - 130px);
+    animation: appear 0.4s 0.2s linear both;
     
   }
 }
@@ -139,24 +141,60 @@ button:focus-visible {
   }
 
 } */
-@keyframes appearFromRight {
+@keyframes appearFromBottom {
   0% {
-    transform: translateX(100%);
+    transform: translate3d(0, 30%, 0);
     opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes appearFromTop {
+  0% {
+    transform: translate3d(0, -30%, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes appearFromRight {
+  0% {
+    
+    transform: translate3d(30%, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0,0,0);
     opacity: 1;
   }
 }
 
 @keyframes appearFromLeft {
   0% {
-    transform: translateX(-100%);
+    
+    transform: translate3d(0, -30%, 0);
     opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    transform: translateY(0,0,0);
     opacity: 1;
   }
+}
+
+@keyframes clip-in {
+  0% {clip-path: polygon(41% 0%, 41% 0%, 58% 100%, 58% 100%);}
+  100% {
+    clip-path: polygon(0% 0%, 92% 0%, 100% 100%, 8% 100%);
+  }
+}
+
+
+@keyframes appear {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }

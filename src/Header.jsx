@@ -40,9 +40,9 @@ const styles = css`
   h1 {
     font-size: 5rem;
     line-height: 5rem;
-    bottom: 17px;
+    bottom: 15px;
     left: 1vw;
-    animation: appearFromRight 0.4s ease-out;
+    animation: appearFromRight 0.4s 0.3s ease-out both;
   }
 
   h2 {
@@ -50,6 +50,7 @@ const styles = css`
     line-height: 3.5rem;
     bottom: 11px;
     right: 1vw;
+    animation: appearFromBottom 0.4s 0.5s ease-out both;
   }
 
   .inverse h1,
@@ -59,6 +60,10 @@ const styles = css`
 
   .inverse h1 {
     animation-name: appearFromLeft;
+  }
+
+  .inverse h2 {
+    animation-name: appearFromTop;
   }
 `;
 

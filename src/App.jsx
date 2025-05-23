@@ -1,13 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState, useRef } from "react";
 import {
-  createHashRouter,
+  createBrowserRouter,
   RouterProvider,
   Link,
   useLocation,
   Navigate,
 } from "react-router";
-import Home from "./Home";
 import Stories from "./Stories";
 import About from "./About";
 import Contact from "./Contact";
@@ -42,7 +41,7 @@ const navStyles = css`
     display: flex;
     place-items: center;
     justify-content: center;
-    transition: all 0.4s linear;
+    transition: all 0.2s ease-out;
     position: relative;
 
     .bg {
@@ -55,10 +54,13 @@ const navStyles = css`
       z-index: -1;
     }
 
-    &.selected,
-    :hover {
+    a:hover {
+      transform: scale(1.1);
+    }
+
+    &.selected {
       .bg {
-        clip-path: polygon(0% 0%, 92% 0%, 100% 100%, 8% 100%);
+        animation: clip-in 0.4s ease-out both;
       }
       * {
         color: var(--color-black);
@@ -134,7 +136,7 @@ function App() {
     lastLocation.current = location;
   }, [location]);
 
-  const router = createHashRouter([
+  const router = createBrowserRouter([
     {
       path: "stories/:story",
       loader: async ({ params }) => {
