@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState, useRef } from "react";
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
   Link,
   useLocation,
@@ -136,7 +136,7 @@ function App() {
     lastLocation.current = location;
   }, [location]);
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "stories/:story",
       loader: async ({ params }) => {
