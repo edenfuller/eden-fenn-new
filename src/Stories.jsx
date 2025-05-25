@@ -11,17 +11,17 @@ import Reader from "./Reader";
 const stories = {
   "washed-clean": {
     title: "Washed Clean",
-    credit: "published in Nature Futures March 2020",
+    credit: "published in Nature Futures",
     markdown: washedClean,
   },
   "gaia-hypothesis": {
     title: "Gaia Hypothesis",
-    credit: "published in Daily Science Fiction April 2020",
+    credit: "published in Daily Science Fiction",
     markdown: gaiaHypothesis,
   },
   "five-six-seven": {
     title: "Five Six Seven",
-    credit: "published in Asimov's Science Fiction Magazine #462",
+    credit: "published in Asimov's Science Fiction Magazine",
     markdown: fiveSixSeven,
   },
 };

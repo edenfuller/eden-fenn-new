@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Nova+Cut&family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nova+Cut&family=Sofia+Sans+Semi+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
 :root {
   --font-family-header: 'Nova Cut', slab-serif, serif;
   --font-family-reader: 'EB Garamond', serif;
-  --font-family-body: 'Saira Semi Condensed', sans-serif;
+  --font-family-body: 'Sofia Sans Semi Condensed', sans-serif;
 
   font-family: var(--font-family-body);
   line-height: 1.5;
