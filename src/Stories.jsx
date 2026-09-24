@@ -19,11 +19,11 @@ const stories = {
     credit: "published in Daily Science Fiction",
     markdown: gaiaHypothesis,
   },
-  "five-six-seven": {
-    title: "Five Six Seven",
-    credit: "published in Asimov's Science Fiction Magazine",
-    markdown: fiveSixSeven,
-  },
+  // "five-six-seven": {
+  //   title: "Five Six Seven",
+  //   credit: "published in Asimov's Science Fiction Magazine",
+  //   markdown: fiveSixSeven,
+  // },
 };
 
 const styles = css`

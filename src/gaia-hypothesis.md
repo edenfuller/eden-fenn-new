@@ -1,6 +1,6 @@
 ## Gaia Hypothesis
 
-### published in Daily Science Fiction in April 2020
+### published in Daily Science Fiction
 
 No matter what we did, they kept dying.
 

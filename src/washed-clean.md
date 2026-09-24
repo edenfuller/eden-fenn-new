@@ -1,6 +1,6 @@
 ## Washed Clean
 
-### published in Nature Futures in March 2020
+### published in Nature Futures
 
 The record of my sins is written on every cell.
 
